@@ -14,7 +14,7 @@
 
         <!-- LINGUA  -->
         <div class="sezioni">
-          LINGUA : <img v-if="film.original_language === 'en' || film.original_language === 'it' " class="bandiera" :src="film.original_language === 'en' ? 'https://www.oltrevela.com/media/catalog/product/cache/2/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/3/4/3468fni/adria-bandiere-pcg-fn5252302-bandiera-inghilterra-20.png' : film.original_language === 'it' ?  'https://upload.wikimedia.org/wikipedia/commons/c/ca/Bandiera_italiana_foto.svg' :'' " alt="nazione">
+          LINGUA : <img v-if="film.original_language === 'en' || film.original_language === 'it' " class="bandiera" :src="getLanguageImage(film)" alt="nazione">
         </div>
         <div class="sezioni">
           VOTO : {{film.vote_average}}
@@ -36,16 +36,17 @@ export default {
   data() {
       return {
         ricerca: "",
-        bandiera : ""
       }
   },
-  computed : {
-    nazione(){
-      return this.filmSearched.forEach((element)=>{
-        if (element.original_language === 'en'){
-          return this.bandiera = "https://www.oltrevela.com/media/catalog/product/cache/2/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/3/4/3468fni/adria-bandiere-pcg-fn5252302-bandiera-inghilterra-20.png"
-        }
-      })
+  created(){
+  },
+  methods : {
+    getLanguageImage(element){
+      if (element.original_language === 'en'){
+        return "https://www.oltrevela.com/media/catalog/product/cache/2/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/3/4/3468fni/adria-bandiere-pcg-fn5252302-bandiera-inghilterra-20.png"
+      } else if (element.original_language === 'it'){
+        return "https://upload.wikimedia.org/wikipedia/commons/c/ca/Bandiera_italiana_foto.svg"
+      } 
     }
   }
   
