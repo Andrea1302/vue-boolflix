@@ -1,8 +1,9 @@
 <template>
   <main>
-    <div id="containerCards">
-    
-      <div class="card"  v-for="film, i in ArrayTrovato" :key="i">
+    <div id="containerCards" v-for="film, i in ArrayTrovato" :key="i">
+      <div class="card"  >
+        <!-- <img id="img_principale" :src="getImage(film)" alt="img"> -->
+
         <!-- titolo  -->
         <div class="sezioni">
             TITOLO : {{film.title}}
@@ -36,6 +37,7 @@ export default {
   data() {
       return {
         ricerca: "",
+        pathImage: "https://image.tmdb.org/t/p/w342/"
       }
   },
   created(){
@@ -47,7 +49,10 @@ export default {
       } else if (element.original_language === 'it'){
         return "https://upload.wikimedia.org/wikipedia/commons/c/ca/Bandiera_italiana_foto.svg"
       } 
-    }
+    },
+    // getImage(element){
+    //   // return `${this.pathImage}`,element.backdrop_path
+    // }
   }
   
   
@@ -62,7 +67,12 @@ export default {
       flex-wrap: wrap;
       padding: 30px;
     }
+    #img_principale{
+      width: 100%;
+      height: 100%;
+    }
     .card{
+      // display: none;
       width: 21%;
       margin: 20px 0;
       min-height: 500px;

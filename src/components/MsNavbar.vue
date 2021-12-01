@@ -39,7 +39,7 @@ export default {
         padding: 20px;
         align-items: center;
         background-color: black;
-        height: 10vh;
+        min-height: 10vh;
         #titolo{
             font-size: 30px;
             color: red;
