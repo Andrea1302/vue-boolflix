@@ -45,4 +45,11 @@ export default {
             color: red;
         }
     }
+
+
+    @media all and ( max-width:576px) {
+     nav {
+       flex-direction: column;
+     }
+    }
 </style>

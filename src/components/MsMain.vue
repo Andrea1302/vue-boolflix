@@ -1,25 +1,9 @@
 <template>
   <main>
     <div id="containerCards">
-    
-      <div class="card"  v-for="film, i in filmSearched" :key="i">
-        <!-- titolo  -->
-        <div class="sezioni">
-            TITOLO : {{film.title}}
-        </div>
-        <!-- titolo originale  -->
-        <div class="sezioni">
-          TITOLO ORIGINALE : {{film.original_title}}
-        </div>
-
-        <!-- LINGUA  -->
-        <div class="sezioni">
-          LINGUA : <img v-if="film.original_language === 'en' || film.original_language === 'it' " class="bandiera" :src="getLanguageImage(film)" alt="nazione">
-        </div>
-        <div class="sezioni">
-          VOTO : {{film.vote_average}}
-        </div>
-      </div>
+      <Card
+        :ArrayTrovato="filmSearched"
+      />
 
     </div>
   </main>
@@ -27,9 +11,13 @@
 
 <script>
 // import axios from "axios";
+import Card from "./Card.vue"
 
 export default {
   name: 'MsMain',
+  components: {
+    Card,
+  },
   props : {
     filmSearched: Array
   },
@@ -60,28 +48,6 @@ export default {
         height: 90vh;
         background-color: rgb(26, 25, 25);
         overflow: scroll;
-    }
-    #containerCards{
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      padding: 30px;
-    }
-    .card{
-      width: 21%;
-      margin: 20px 0;
-      min-height: 500px;
-      color: white;
-      font-weight: bold;
-      padding: 10px;
-      background-color: black;
-        .bandiera{
-          width: 20px;
-
-        }
-    }
-    .sezioni{
-      margin: 10px 0
     }
 
 </style>
