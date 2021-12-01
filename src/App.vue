@@ -3,14 +3,14 @@
     <header>
       <!-- Navbar ricerca  -->
       <MsNavbar
-        @ricerca="filmSearched"
+        @ricercaGenerata="filmSearched"
       />
 
     </header>
 
     <!-- main  -->
     <MsMain
-      serched:filmCercato
+      :filmSearched="ricercaGenerataApi"
     />
 
     
@@ -31,13 +31,13 @@ export default {
   },
   data(){
     return {
-      filmCercato : ""
+      filmCercato : "",
+      ricercaGenerataApi : []
     }
   },
   methods : {
-    filmSearched(film){
-      this.filmCercato = film
-      // console.log(this.filmCercato);
+    filmSearched(arrayRicercaApi){
+      this.ricercaGenerataApi = arrayRicercaApi;
     }
   }
 }

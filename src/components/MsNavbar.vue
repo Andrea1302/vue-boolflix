@@ -8,6 +8,7 @@
 </template>
 
 <script>
+import axios from "axios"
 export default {
   name: 'MsNavbar',
   data() {
@@ -17,7 +18,13 @@ export default {
   },
   methods : {
       invio(){
-          this.$emit("ricerca",this.ricercaFilm)
+        //   this.$emit("ricerca",this.ricercaFilm)
+        axios
+        .get(`https://api.themoviedb.org/3/search/movie?api_key=48ceee017a943196a6809d6419385050&query=${this.ricercaFilm}&language=it=IT`)
+        .then((res)=>{
+            this.$emit("ricercaGenerata",res.data.results)
+        })
+        
       }
   }
   
