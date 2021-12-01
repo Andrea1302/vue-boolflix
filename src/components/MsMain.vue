@@ -1,11 +1,11 @@
 <template>
   <main>
-    <div id="containerCards">
+    <!-- <div id="containerCards"> -->
       <Card
         :ArrayTrovato="filmSearched"
       />
 
-    </div>
+    <!-- </div> -->
   </main>
 </template>
 
