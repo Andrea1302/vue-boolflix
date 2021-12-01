@@ -15,7 +15,7 @@
 
           <!-- LINGUA  -->
           <div class="sezioni">
-            LINGUA : <img v-if="film.original_language === 'en' || film.original_language === 'it' " class="bandiera" :src="getLanguageImage(film)" alt="nazione">
+            LINGUA : <img v-if="getLanguageImage(film) !== 'notfound'"  class="bandiera" :src="getLanguageImage(film)" :alt="film.original_language"> <span v-if="getLanguageImage(film) === 'notfound'">{{film.original_language}}</span>
           </div>
           <div class="sezioni">
             VOTO : {{film.vote_average}}
@@ -39,7 +39,7 @@ export default {
   data() {
       return {
         ricerca: "",
-        pathImage: "https://image.tmdb.org/t/p/w342/"
+        pathImage: "https://image.tmdb.org/t/p/w342/",
       }
   },
   created(){
@@ -50,7 +50,19 @@ export default {
         return "https://www.oltrevela.com/media/catalog/product/cache/2/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/3/4/3468fni/adria-bandiere-pcg-fn5252302-bandiera-inghilterra-20.png"
       } else if (element.original_language === 'it'){
         return "https://upload.wikimedia.org/wikipedia/commons/c/ca/Bandiera_italiana_foto.svg"
-      } 
+      } else if (element.original_language === 'ja'){
+        return "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9e/Flag_of_Japan.svg/280px-Flag_of_Japan.svg.png"
+      } else if (element.original_language === 'tl'){
+        return "https://upload.wikimedia.org/wikipedia/commons/thumb/2/26/Flag_of_East_Timor.svg/2880px-Flag_of_East_Timor.svg.png"
+      }  else if (element.original_language === 'es'){
+        return "https://d1bvpoagx8hqbg.cloudfront.net/originals/la-bandiera-della-spagna-d9233b06138fb2138a46f6e4b6d3d992.jpg"
+      }  else if (element.original_language === 'fr'){
+        return "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3a/Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931958%29.svg/280px-Flag_of_France_%281794%E2%80%931815%2C_1830%E2%80%931958%29.svg.png"
+      } else{
+        return "notfound"
+
+      }
+
     },
     getImage(element){
       if (element.poster_path !== null) {
