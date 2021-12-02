@@ -4,6 +4,7 @@
       <!-- Navbar ricerca  -->
       <MsNavbar
         @ricercaGenerata="filmSearched"
+        @ricercaGenerataSerie="filmSearchedSeries"
       />
 
     </header>
@@ -11,6 +12,7 @@
     <!-- main  -->
     <MsMain
       :filmSearched="ricercaGenerataApi"
+      :serieSearched="ricercaGenerataApiSeries"
     />
 
     
@@ -32,12 +34,17 @@ export default {
   data(){
     return {
       filmCercato : "",
-      ricercaGenerataApi : []
+      ricercaGenerataApi : [],
+      ricercaGenerataApiSeries : []
+
     }
   },
   methods : {
     filmSearched(arrayRicercaApi){
       this.ricercaGenerataApi = arrayRicercaApi;
+    },
+    filmSearchedSeries(arrayRicercaApi){
+      this.ricercaGenerataApiSeries = arrayRicercaApi;
     }
   }
 }
@@ -57,7 +64,7 @@ body{
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
-  // height: 100vh;
+  background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/23c72870-12c8-4682-9f55-337a083ccfa7/5ae78ee3-d067-4e34-9654-c218ec43e607/IT-it-20211129-popsignuptwoweeks-perspective_alpha_website_large.jpg);
 
 }
 </style>

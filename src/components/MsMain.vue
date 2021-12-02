@@ -4,6 +4,7 @@
   <main>
       <Card
         :ArrayTrovato="filmSearched"
+        :ArrayTrovatoSerie="serieSearched"
       />
 
   </main>
@@ -19,7 +20,8 @@ export default {
     Card,
   },
   props : {
-    filmSearched: Array
+    filmSearched: Array,
+    serieSearched: Array
   },
   data() {
       return {
@@ -38,7 +40,7 @@ export default {
 <style  lang="scss">
     main {
         height: 90vh;
-        background-color: rgb(26, 25, 25);
+        background-color: rgba(26, 25, 25, 0.493);
         overflow: scroll;
     }
 

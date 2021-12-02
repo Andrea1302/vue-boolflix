@@ -9,11 +9,46 @@
         <div id="info">
            <!-- titolo  -->
           <div class="sezioni">
-              TITOLO : {{film.title}}
+              <span class="details">TITOLO :</span>  <span v-if="film.title"> {{film.title}} </span> <span v-else>{{film.name}}</span>
           </div>
           <!-- titolo originale  -->
           <div class="sezioni">
-            TITOLO ORIGINALE : {{film.original_title}}
+            <span class="details">TITOLO ORIGINALE :</span>  <span v-if="film.title">{{film.original_title}}</span> <span>{{film.original_name}}</span>
+          </div>
+
+          <!-- LINGUA  -->
+          <div class="sezioni">
+            <span class="details">LINGUA :</span>  <img v-if="getLanguageImage(film) !== 'notfound'"  class="bandiera" :src="getLanguageImage(film)" :alt="film.original_language"> <span v-if="getLanguageImage(film) === 'notfound'">{{film.original_language}}</span>
+          </div>
+
+          <!-- Voto  -->
+          <div class="sezioni" v-if="film.vote_average > 0">
+            <span class="details">VOTO :</span>  <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i> {{film.vote_average}}
+          </div>
+
+          <!-- Overview -->
+          <div class="sezioni" id="overview">
+            <span class="details">Overview :</span>  {{film.overview}}
+          </div>
+        </div>
+       
+      </div>
+      
+
+      <!-- Serie  -->
+      <div class="card" v-for="film, i in ArrayTrovatoSerie" :key="i" >
+        <!-- Immagine di background  card -->
+        <img id="img_principale" :src="getImage(film)" alt="img">
+
+        <!-- on hover  -->
+        <div id="info">
+           <!-- titolo  -->
+          <div class="sezioni">
+              TITOLO : <span v-if="film.title"> {{film.title}} </span> <span v-else>{{film.name}}</span>
+          </div>
+          <!-- titolo originale  -->
+          <div class="sezioni">
+            TITOLO ORIGINALE : <span v-if="film.title">{{film.original_title}}</span> <span>{{film.original_name}}</span>
           </div>
 
           <!-- LINGUA  -->
@@ -22,13 +57,17 @@
           </div>
 
           <!-- Voto  -->
-          <div class="sezioni">
-            VOTO : <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i>
+          <div class="sezioni" v-if="film.vote_average > 0">
+            VOTO : <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i> {{film.vote_average}}
+          </div>
+
+          <!-- Overview -->
+          <div class="sezioni" id="overview">
+            Overview : {{film.overview}}
           </div>
         </div>
        
       </div>
-
     </div>
   </main>
 </template>
@@ -39,7 +78,8 @@
 export default {
   name: 'MsCard',
   props : {
-    ArrayTrovato: Array
+    ArrayTrovato: Array,
+    ArrayTrovatoSerie: Array
   },
   data() {
       return {
@@ -113,17 +153,19 @@ export default {
     .card{
       width: 21%;
       margin: 20px auto;
-      min-height: 500px;
+      height: 426px;
+      overflow: scroll;
       color: white;
       font-weight: bold;
-      padding: 10px;
       background-color: black;
+      box-shadow: 5px 5px 14px 3px black;
         .bandiera{
           width: 20px;
         }
         #info{
           display: none;
         }
+        
     }
     // star active 
     .active{
@@ -132,10 +174,17 @@ export default {
 
     // Sezioni on hover 
     .sezioni{
-      margin: 10px 0
+      margin: 10px 0;
+      .details{
+        color: red;
+      }
     }
 
 // hover
+.card:hover{
+  padding: 10px;
+  box-shadow: none;
+}
 .card:hover #img_principale{
   display: none;
 }
