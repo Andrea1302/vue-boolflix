@@ -1,7 +1,9 @@
 <template>
   <main>
     <div id="containerCards">
-      <div class="card" v-for="film, i in ArrayTrovato" :key="i" >
+
+      <!-- Sezione film  -->
+      <div class="card" v-for="film, i in ArrayTrovato" :key="'film'+i" >
         <!-- Immagine di background  card -->
         <img id="img_principale" :src="getImage(film)" alt="img">
 
@@ -9,11 +11,11 @@
         <div id="info">
            <!-- titolo  -->
           <div class="sezioni">
-              <span class="details">TITOLO :</span>  <span v-if="film.title"> {{film.title}} </span> <span v-else>{{film.name}}</span>
+              <span class="details">TITOLO :</span>  <span>{{film.title}}</span>
           </div>
           <!-- titolo originale  -->
           <div class="sezioni">
-            <span class="details">TITOLO ORIGINALE :</span>  <span v-if="film.title">{{film.original_title}}</span> <span>{{film.original_name}}</span>
+            <span class="details">TITOLO ORIGINALE :</span>  <span>{{film.original_title}}</span>
           </div>
 
           <!-- LINGUA  -->
@@ -35,8 +37,8 @@
       </div>
       
 
-      <!-- Serie  -->
-      <div class="card" v-for="film, i in ArrayTrovatoSerie" :key="i" >
+      <!--sezione Serie  -->
+      <div class="card" v-for="film, i in ArrayTrovatoSerie" :key="'serie'+i" >
         <!-- Immagine di background  card -->
         <img id="img_principale" :src="getImage(film)" alt="img">
 
@@ -44,11 +46,11 @@
         <div id="info">
            <!-- titolo  -->
           <div class="sezioni">
-              TITOLO : <span v-if="film.title"> {{film.title}} </span> <span v-else>{{film.name}}</span>
+              TITOLO : <span>{{film.name}}</span>
           </div>
           <!-- titolo originale  -->
           <div class="sezioni">
-            TITOLO ORIGINALE : <span v-if="film.title">{{film.original_title}}</span> <span>{{film.original_name}}</span>
+            TITOLO ORIGINALE : <span>{{film.original_name}}</span>
           </div>
 
           <!-- LINGUA  -->
