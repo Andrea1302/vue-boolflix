@@ -63,7 +63,7 @@ body{
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: white;
   background-image: url(https://assets.nflxext.com/ffe/siteui/vlv3/23c72870-12c8-4682-9f55-337a083ccfa7/5ae78ee3-d067-4e34-9654-c218ec43e607/IT-it-20211129-popsignuptwoweeks-perspective_alpha_website_large.jpg);
 
 }

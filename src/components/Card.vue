@@ -181,7 +181,7 @@ export default {
         color: red;
       }
     }
-
+    
 // hover
 .card:hover{
   padding: 10px;
