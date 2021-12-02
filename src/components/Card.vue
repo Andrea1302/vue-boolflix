@@ -25,7 +25,7 @@
 
           <!-- Voto  -->
           <div class="sezioni" v-if="film.vote_average > 0">
-            <span class="details">VOTO :</span>  <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i> {{film.vote_average}}
+            <span class="details">VOTO :</span>  <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i>
           </div>
 
           <!-- Overview -->
@@ -60,7 +60,7 @@
 
           <!-- Voto  -->
           <div class="sezioni" v-if="film.vote_average > 0">
-            VOTO : <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i> {{film.vote_average}}
+            VOTO : <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i> 
           </div>
 
           <!-- Overview -->
