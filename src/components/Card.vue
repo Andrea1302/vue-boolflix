@@ -23,7 +23,7 @@
 
           <!-- Voto  -->
           <div class="sezioni">
-            VOTO : {{film.vote_average}}
+            VOTO : <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i>
           </div>
         </div>
        
@@ -43,11 +43,16 @@ export default {
   },
   data() {
       return {
-        ricerca: "",
+        ricerca: "io",
         pathImage: "https://image.tmdb.org/t/p/w342/",
+        StellinaVoto : ""
       }
   },
   created(){
+  
+  },
+  computed : {
+    
   },
   methods : {
 
@@ -78,8 +83,11 @@ export default {
       } else  if (element.poster_path === null){
         return `https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQNQn862ehpJA_5eh3gI8SzbX47lf3zKv5S5g&usqp=CAU`
       }
-      }
-      
+    },
+    getStarVote(element){
+      let voto = Math.round((element.vote_average / 2) )
+      return voto
+    }
   }
   
   
@@ -88,6 +96,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped  lang="scss">
+
     #containerCards{
       display: flex;
       flex-wrap: wrap;
@@ -115,6 +124,10 @@ export default {
         #info{
           display: none;
         }
+    }
+    // star active 
+    .active{
+      color: yellow;
     }
 
     // Sezioni on hover 
