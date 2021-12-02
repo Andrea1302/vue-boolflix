@@ -1,11 +1,11 @@
 <template>
+
+<!-- Contenitore cards  -->
   <main>
-    <!-- <div id="containerCards"> -->
       <Card
         :ArrayTrovato="filmSearched"
       />
 
-    <!-- </div> -->
   </main>
 </template>
 
@@ -29,16 +29,8 @@ export default {
   created(){
   },
   methods : {
-    getLanguageImage(element){
-      if (element.original_language === 'en'){
-        return "https://www.oltrevela.com/media/catalog/product/cache/2/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/3/4/3468fni/adria-bandiere-pcg-fn5252302-bandiera-inghilterra-20.png"
-      } else if (element.original_language === 'it'){
-        return "https://upload.wikimedia.org/wikipedia/commons/c/ca/Bandiera_italiana_foto.svg"
-      } 
-    }
+   
   }
-  
-  
 }
 </script>
 

@@ -2,7 +2,10 @@
   <main>
     <div id="containerCards">
       <div class="card" v-for="film, i in ArrayTrovato" :key="i" >
+        <!-- Immagine di background  card -->
         <img id="img_principale" :src="getImage(film)" alt="img">
+
+        <!-- on hover  -->
         <div id="info">
            <!-- titolo  -->
           <div class="sezioni">
@@ -17,6 +20,8 @@
           <div class="sezioni">
             LINGUA : <img v-if="getLanguageImage(film) !== 'notfound'"  class="bandiera" :src="getLanguageImage(film)" :alt="film.original_language"> <span v-if="getLanguageImage(film) === 'notfound'">{{film.original_language}}</span>
           </div>
+
+          <!-- Voto  -->
           <div class="sezioni">
             VOTO : {{film.vote_average}}
           </div>
@@ -45,6 +50,8 @@ export default {
   created(){
   },
   methods : {
+
+    // per stampare immagine bandiera trovata al posto del semplice testo 
     getLanguageImage(element){
       if (element.original_language === 'en'){
         return "https://www.oltrevela.com/media/catalog/product/cache/2/small_image/600x600/9df78eab33525d08d6e5fb8d27136e95/3/4/3468fni/adria-bandiere-pcg-fn5252302-bandiera-inghilterra-20.png"
@@ -64,6 +71,7 @@ export default {
       }
 
     },
+    // Per stampare immagine di background card 
     getImage(element){
       if (element.poster_path !== null) {
         return `https://image.tmdb.org/t/p/w342${element.poster_path}`
@@ -82,7 +90,6 @@ export default {
 <style scoped  lang="scss">
     #containerCards{
       display: flex;
-      justify-content: space-between;
       flex-wrap: wrap;
       padding: 30px;
       width: 100%;
@@ -92,10 +99,11 @@ export default {
       height: 100%;
       object-fit: cover;
     }
+
+    // Card trovata dopo la ricerca 
     .card{
-      // display: none;
       width: 21%;
-      margin: 20px 0;
+      margin: 20px auto;
       min-height: 500px;
       color: white;
       font-weight: bold;
@@ -108,6 +116,8 @@ export default {
           display: none;
         }
     }
+
+    // Sezioni on hover 
     .sezioni{
       margin: 10px 0
     }
@@ -121,16 +131,23 @@ export default {
 }
 
   // mediaquery
+
+
+    // Desktop
     @media all and ( max-width:992px) {
       .card{
         width: 30%;
       }
     }
+
+    // Tablet 
     @media all and ( max-width:768px) {
       .card{
         width: 40%;
       }
     }
+
+    // Smartphone 
     @media all and ( max-width:576px) {
       .card{
         width: 100%;
