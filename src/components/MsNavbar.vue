@@ -5,22 +5,7 @@
         BOOLFLIX
     </div>
     <Genres/>
-    <!-- <div id="container_generi">
-        <div id="generiFilm" @click="ricercaGeneri">
-          Generi Film
-        </div>
-        <div v-show="this.activeFilmGenre" class="generi_trovati">
-          <div v-for="genere,i in generiFilm" :key="'genere'+i">
-            
-              <div class="genere_film_singolo" @click="genereFilm(i)"> 
-                {{genere.name}} {{i}}
-              </div>
-            
-          </div>
-            
-        </div>
-    </div> -->
-  
+    <TopRated/>
     <!-- Input ricerca film o serie tv -->
     <div id="search">
       <i class="fas fa-search" id="ricerca_icon" @click="ricerca"></i>
@@ -33,10 +18,12 @@
 <script>
 import axios from "axios"
 import Genres from "./GeneriSerie.vue";
+import TopRated from "./TopRated.vue"
 export default {
   name: 'MsNavbar',
   components :{
-    Genres
+    Genres,
+    TopRated
   },
   data() {
       return {

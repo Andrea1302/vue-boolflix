@@ -6,7 +6,7 @@
         <div v-show="this.activeFilmGenre" class="generi_trovati">
           <div v-for="genere,i in generiFilm" :key="'genere'+i">
             
-              <div class="genere_film_singolo" @click="genereFilm(i)"> 
+              <div class="genere_film_singolo"> 
                 {{genere.name}} {{i}}
               </div>
             
@@ -39,7 +39,6 @@ export default {
         axios
         .get("https://api.themoviedb.org/3/genre/movie/list?api_key=48ceee017a943196a6809d6419385050&language=en-US")
         .then((res)=>{
-          console.log(res.data.genres);
           this.generiFilm = res.data.genres;
         })
           if (this.activeFilmGenre === false ){
