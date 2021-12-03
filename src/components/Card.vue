@@ -32,6 +32,11 @@
           <div class="sezioni" id="overview">
             <span class="details">Overview :</span>  {{film.overview}}
           </div>
+
+          <!-- Autori  -->
+          <div class="sezioni" id="actors">
+            <span class="details">Attori :</span>  {{film.overview}}
+          </div>
         </div>
        
       </div>
@@ -67,6 +72,11 @@
           <div class="sezioni" id="overview">
             Overview : {{film.overview}}
           </div>
+
+          <!-- attori -->
+          <div class="sezioni" id="attori">
+            
+          </div>
         </div>
        
       </div>
@@ -81,7 +91,7 @@ export default {
   name: 'MsCard',
   props : {
     ArrayTrovato: Array,
-    ArrayTrovatoSerie: Array
+    ArrayTrovatoSerie: Array,
   },
   data() {
       return {
@@ -94,7 +104,9 @@ export default {
   
   },
   computed : {
-    
+   prova(){
+     return this.idFilm.id
+   }
   },
   methods : {
 

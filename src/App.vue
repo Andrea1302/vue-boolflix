@@ -35,8 +35,7 @@ export default {
     return {
       filmCercato : "",
       ricercaGenerataApi : [],
-      ricercaGenerataApiSeries : []
-
+      ricercaGenerataApiSeries : [],
     }
   },
   methods : {
@@ -45,7 +44,7 @@ export default {
     },
     filmSearchedSeries(arrayRicercaApi){
       this.ricercaGenerataApiSeries = arrayRicercaApi;
-    }
+    },
   }
 }
 </script>

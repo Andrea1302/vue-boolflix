@@ -12,22 +12,15 @@
         <div v-show="this.activeFilmGenre" class="generi_trovati">
           <div v-for="genere,i in generiFilm" :key="'genere'+i">
             
-              <div class="genere_film_singolo"> 
-                {{genere.name}}
+              <div class="genere_film_singolo" @click="genereFilm(i)"> 
+                {{genere.name}} {{i}}
               </div>
             
           </div>
             
         </div>
     </div>
-    
-    <!-- <div class="generiTrovati" v-for="genere,i in generiFilm" :key="'genere'+i">
-      <div id="genere">
-        {{genere.name}}
-      </div>
-    </div> -->
-      
-    
+  
     <!-- Input ricerca film o serie tv -->
     <div id="search">
       <i class="fas fa-search" id="ricerca_icon" @click="ricerca"></i>
@@ -90,6 +83,9 @@ export default {
         } else if ( this.activeFilmGenre === true ) {
           this.activeFilmGenre = false
         }
+      },
+      genereFilm(i){
+        console.log(i);
       }
   }
   

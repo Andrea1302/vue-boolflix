@@ -21,7 +21,7 @@ export default {
   },
   props : {
     filmSearched: Array,
-    serieSearched: Array
+    serieSearched: Array,
   },
   data() {
       return {
