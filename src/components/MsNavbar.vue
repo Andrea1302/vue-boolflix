@@ -4,8 +4,8 @@
     <div id="titolo">
         BOOLFLIX
     </div>
-
-    <div id="container_generi">
+    <Genres/>
+    <!-- <div id="container_generi">
         <div id="generiFilm" @click="ricercaGeneri">
           Generi Film
         </div>
@@ -19,7 +19,7 @@
           </div>
             
         </div>
-    </div>
+    </div> -->
   
     <!-- Input ricerca film o serie tv -->
     <div id="search">
@@ -32,8 +32,12 @@
 
 <script>
 import axios from "axios"
+import Genres from "./GeneriSerie.vue";
 export default {
   name: 'MsNavbar',
+  components :{
+    Genres
+  },
   data() {
       return {
           ricercaFilm : "",
@@ -84,9 +88,6 @@ export default {
           this.activeFilmGenre = false
         }
       },
-      genereFilm(i){
-        console.log(i);
-      }
   }
   
 }
@@ -112,43 +113,6 @@ export default {
     .active{
       display: block;
     }
-    // generi film 
-    #container_generi{
-      position: relative;
-      display: flex;
-      flex-direction: column;
-    }
-    #generiFilm{
-      padding: 5px 15px;
-      border: 1px solid white;
-      cursor: pointer;
-      box-shadow: 0px 0px 5px 1px white;
-    }
-    .generi_trovati{
-      position: absolute;
-      top:50px;
-      padding: 30px;
-      background-color: black;
-      border: 2px solid white;
-      box-shadow: 0px 0px 5px 1px white;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      width: 500px;
-      .genere_film_singolo {
-        min-width: 180px;
-        margin: 10px 0;
-        list-style: none;
-        padding: 10px;
-        cursor: pointer;
-        box-shadow: 0px 1px 13px 1px red;
-      }
-    }
-    
-
-
-
-
     #ricerca_icon{
       font-size: 30px;
       cursor: pointer;
