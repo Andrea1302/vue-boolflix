@@ -4,40 +4,40 @@
 
       <!-- Sezione film  -->
       <div class="card" v-for="film, i in ArrayTrovatoFilm" :key="'film'+i" >
-        <!-- Immagine di background  card -->
-        <img id="img_principale" :src="getImage(film)" alt="img">
+          <!-- Immagine di background  card -->
+          <img id="img_principale" :src="getImage(film)" alt="img">
 
-        <!-- on hover  -->
-        <div id="info">
-           <!-- titolo  -->
-          <div class="sezioni">
-              <span class="details">TITOLO :</span>  <span>{{film.title}}</span>
-          </div>
-          <!-- titolo originale  -->
-          <div class="sezioni">
-            <span class="details">TITOLO ORIGINALE :</span>  <span>{{film.original_title}}</span>
-          </div>
+          <!-- on hover  -->
+          <div id="info">
+              <!-- titolo  -->
+              <div class="sezioni">
+                  <span class="details">TITOLO :</span>  <span>{{film.title}}</span>
+              </div>
+              <!-- titolo originale  -->
+              <div class="sezioni">
+                <span class="details">TITOLO ORIGINALE :</span>  <span>{{film.original_title}}</span>
+              </div>
 
-          <!-- LINGUA  -->
-          <div class="sezioni">
-            <span class="details">LINGUA :</span>  <img v-if="getLanguageImage(film) !== 'notfound'"  class="bandiera" :src="getLanguageImage(film)" :alt="film.original_language"> <span v-if="getLanguageImage(film) === 'notfound'">{{film.original_language}}</span>
-          </div>
+              <!-- LINGUA  -->
+              <div class="sezioni">
+                <span class="details">LINGUA :</span>  <img v-if="getLanguageImage(film) !== 'notfound'"  class="bandiera" :src="getLanguageImage(film)" :alt="film.original_language"> <span v-if="getLanguageImage(film) === 'notfound'">{{film.original_language}}</span>
+              </div>
 
-          <!-- Voto  -->
-          <div class="sezioni" v-if="film.vote_average > 0">
-            <span class="details">VOTO :</span>  <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i>
-          </div>
+              <!-- Voto  -->
+              <div class="sezioni" v-if="film.vote_average > 0">
+                <span class="details">VOTO :</span>  <i class="fas fa-star" :class="getStarVote(film) >=1 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=2 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=3 ? 'active' : ''" ></i> <i class="fas fa-star" :class="getStarVote(film) >=4 ? 'active' : ''"></i> <i class="fas fa-star" :class="getStarVote(film) >=5 ? 'active' : ''"></i>
+              </div>
 
-          <!-- Overview -->
-          <div class="sezioni" id="overview">
-            <span class="details">Overview :</span>  {{film.overview}}
-          </div>
+              <!-- Overview -->
+              <div class="sezioni" id="overview">
+                <span class="details">Overview :</span>  {{film.overview}}
+              </div>
 
-          <!-- Autori  -->
-          <div class="sezioni" id="actors">
-            <span class="details">Attori :</span>  {{film.overview}}
+              <!-- Autori  -->
+              <div class="sezioni" id="actors">
+                <span class="details">Attori :</span>  {{film.overview}}
+              </div>
           </div>
-        </div>
        
       </div>
       
@@ -92,7 +92,6 @@ export default {
   data() {
       return {
         ricerca: "io",
-        pathImage: "https://image.tmdb.org/t/p/w342/",
       }
   },
   mounted(){
