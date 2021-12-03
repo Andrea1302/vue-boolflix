@@ -3,7 +3,7 @@
     <div id="containerCards">
 
       <!-- Sezione film  -->
-      <div class="card" v-for="film, i in ArrayTrovato" :key="'film'+i" >
+      <div class="card" v-for="film, i in ArrayTrovatoFilm" :key="'film'+i" >
         <!-- Immagine di background  card -->
         <img id="img_principale" :src="getImage(film)" alt="img">
 
@@ -73,10 +73,6 @@
             Overview : {{film.overview}}
           </div>
 
-          <!-- attori -->
-          <div class="sezioni" id="attori">
-            
-          </div>
         </div>
        
       </div>
@@ -90,23 +86,18 @@
 export default {
   name: 'MsCard',
   props : {
-    ArrayTrovato: Array,
+    ArrayTrovatoFilm: Array,
     ArrayTrovatoSerie: Array,
   },
   data() {
       return {
         ricerca: "io",
         pathImage: "https://image.tmdb.org/t/p/w342/",
-        StellinaVoto : ""
       }
   },
-  created(){
-  
+  mounted(){
   },
   computed : {
-   prova(){
-     return this.idFilm.id
-   }
   },
   methods : {
 
@@ -141,10 +132,8 @@ export default {
     getStarVote(element){
       let voto = Math.round((element.vote_average / 2) )
       return voto
-    }
+    },
   }
-  
-  
 }
 </script>
 

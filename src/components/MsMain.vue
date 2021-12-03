@@ -3,7 +3,7 @@
 <!-- Contenitore cards  -->
   <main>
       <Card
-        :ArrayTrovato="filmSearched"
+        :ArrayTrovatoFilm="filmSearched"
         :ArrayTrovatoSerie="serieSearched"
       />
 
@@ -31,7 +31,7 @@ export default {
   created(){
   },
   methods : {
-   
+
   }
 }
 </script>
