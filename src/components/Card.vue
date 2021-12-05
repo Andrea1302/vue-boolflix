@@ -1,6 +1,5 @@
 <template>
-  <main>
-    <div id="containerCards">
+    <div id="containerCards" v-show="activeRicerca && RicercaTopRated === false">
 
       <!-- Sezione film  -->
       <div class="card" v-for="film, i in ArrayTrovatoFilm" :key="'film'+i" >
@@ -77,7 +76,6 @@
        
       </div>
     </div>
-  </main>
 </template>
 
 <script>
@@ -88,10 +86,12 @@ export default {
   props : {
     ArrayTrovatoFilm: Array,
     ArrayTrovatoSerie: Array,
+    activeRicerca:Boolean,
+    RicercaTopRated:Boolean
   },
   data() {
       return {
-        ricerca: "io",
+        
       }
   },
   mounted(){

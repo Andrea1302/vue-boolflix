@@ -5,7 +5,9 @@
         BOOLFLIX
     </div>
     <Genres/>
-    <TopRated/>
+    <TopRated 
+      @clickTopRated="clicked"
+      @topRatedArray="topRatedArray"/>
     <!-- Input ricerca film o serie tv -->
     <div id="search">
       <i class="fas fa-search" id="ricerca_icon" @click="ricerca"></i>
@@ -30,12 +32,16 @@ export default {
           ricercaFilm : "",
           active : false,
           activeFilmGenre : false,
-          generiFilm : []
+          generiFilm : [],
+          topRateds : [],
+          activeSearch : false,
+          iPiuVotati : ""
       }
   },
   methods : {
       invio(){
-
+        this.activeSearch = true;
+        this.$emit("activeSearch",this.activeSearch)
         // chiamata axios Film 
         axios
         .get(`https://api.themoviedb.org/3/search/movie?api_key=48ceee017a943196a6809d6419385050&query=${this.ricercaFilm}&language=it=IT`)
@@ -75,6 +81,14 @@ export default {
           this.activeFilmGenre = false
         }
       },
+      topRatedArray(array){
+        this.$emit('topRatedArray',array)
+      },
+      clicked(valore){
+        this.iPiuVotati = valore
+        this.$emit("checkClick",this.iPiuVotati);
+      },
+      
   }
   
 }

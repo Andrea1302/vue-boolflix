@@ -1,8 +1,8 @@
 <template>
-    <div id="containerCards">
-
+  <div>
+    <div  id="containerCards" v-show="RicercaTopRated">
         <!-- Sezione film  -->
-        <div class="card" v-for="film, i in ArrayTrovatoFilm" :key="'film'+i" >
+        <div class="card" v-for="film, i in ArrayTopRated" :key="'film'+i" >
             <!-- Immagine di background  card -->
             <img id="img_principale" :src="getImage(film)" alt="img">
 
@@ -34,6 +34,8 @@
             </div>
         </div>
     </div>
+  </div>
+    
 </template>
 
 <script>
@@ -44,11 +46,15 @@ export default {
     
   },
   props : {
+      ArrayTopRated:Array,
+      activeRicerca:Boolean,
+      RicercaTopRated:Boolean
   },
   data() {
       return {
       }
   },
+  
 
   methods : {
 
@@ -90,6 +96,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+
 #containerCards{
     display: flex;
     flex-wrap: wrap;

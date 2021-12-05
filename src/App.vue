@@ -5,6 +5,9 @@
       <MsNavbar
         @ricercaGenerata="filmSearched"
         @ricercaGenerataSerie="filmSearchedSeries"
+        @topRatedArray="topRatedArray"
+        @activeSearch="activeSearch"
+        @checkClick="ActiveTopRated"
       />
 
     </header>
@@ -13,6 +16,9 @@
     <MsMain
       :filmSearched="ricercaGenerataApi"
       :serieSearched="ricercaGenerataApiSeries"
+      :iPiuVotati="topRateds"
+      :RicercaFatta="RicercaCheck"
+      :RicercaTopRated="ricercaTopGeneri"
     />
 
     
@@ -36,6 +42,9 @@ export default {
       filmCercato : "",
       ricercaGenerataApi : [],
       ricercaGenerataApiSeries : [],
+      topRateds: [],
+      RicercaCheck : "",
+      ricercaTopGeneri : ""
     }
   },
   methods : {
@@ -45,6 +54,17 @@ export default {
     filmSearchedSeries(arrayRicercaApi){
       this.ricercaGenerataApiSeries = arrayRicercaApi;
     },
+    topRatedArray(array){
+      this.topRateds = array
+    },
+    activeSearch(){
+      this.RicercaCheck = true
+      
+    },
+    ActiveTopRated(valore){
+      this.ricercaTopGeneri = valore
+    }
+    
   }
 }
 </script>

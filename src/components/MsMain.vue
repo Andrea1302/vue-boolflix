@@ -5,34 +5,52 @@
       <Card
         :ArrayTrovatoFilm="filmSearched"
         :ArrayTrovatoSerie="serieSearched"
-      />
+        :activeRicerca="RicercaFatta"
+        :RicercaTopRated="RicercaTopRated"
 
+      />
+      <TopRatedCard
+        :ArrayTopRated="iPiuVotati"
+        :RicercaTopRated="RicercaTopRated"
+      />
+      
   </main>
+  
 </template>
 
 <script>
 // import axios from "axios";
-import Card from "./Card.vue"
+import Card from "./Card.vue";
+import TopRatedCard from "./TopRatedCard.vue"
 
 export default {
   name: 'MsMain',
   components: {
     Card,
+    TopRatedCard
   },
   props : {
     filmSearched: Array,
     serieSearched: Array,
+    iPiuVotati:Array,
+    RicercaFatta:Boolean,
+    RicercaTopRated:Boolean
   },
   data() {
       return {
-        ricerca: "",
       }
   },
-  created(){
-  },
   methods : {
-
-  }
+    check(){
+      if ( this.RicercaFatta === true ){
+        this.RicercaTopRated = false
+      }
+      if ( this.RicercaTopRated === true){
+        this.RicercaFatta = false
+      }
+    }
+  },
+  
 }
 </script>
 

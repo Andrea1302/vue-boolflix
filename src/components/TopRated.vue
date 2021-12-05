@@ -16,16 +16,23 @@ export default {
   },
   data() {
       return {
-        TopRated : []
+        TopRated : [],
+        checkTopRated : false,
       }
   },
 
   methods : {
-      top_rated(){
+      top_rated(){ 
+          if ( this.checkTopRated === false ){
+              this.checkTopRated = true
+          } else if (this.checkTopRated === true) {
+              this.checkTopRated = false
+          }
+          this.$emit("clickTopRated",this.checkTopRated)
           axios
           .get("https://api.themoviedb.org/3/movie/top_rated?api_key=48ceee017a943196a6809d6419385050&language=en-US&page=1")
           .then((res)=>{
-              this.TopRated = res.data
+              this.$emit("topRatedArray",res.data.results)
           })
       }
   }
