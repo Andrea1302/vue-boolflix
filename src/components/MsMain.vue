@@ -48,6 +48,10 @@ export default {
       if ( this.RicercaTopRated === true){
         this.RicercaFatta = false
       }
+    },
+    prova(){
+      console.log("ricerca"+this.RicercaFatta);
+      console.log("votati"+this.RicercaTopRated);
     }
   },
   

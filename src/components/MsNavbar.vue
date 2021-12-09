@@ -35,7 +35,6 @@ export default {
           generiFilm : [],
           topRateds : [],
           activeSearch : false,
-          iPiuVotati : ""
       }
   },
   methods : {
@@ -85,8 +84,7 @@ export default {
         this.$emit('topRatedArray',array)
       },
       clicked(valore){
-        this.iPiuVotati = valore
-        this.$emit("checkClick",this.iPiuVotati);
+        this.$emit("checkClick",valore);
       },
       
   }

@@ -7,7 +7,7 @@
           <div v-for="genere,i in generiFilm" :key="'genere'+i">
             
               <div class="genere_film_singolo"> 
-                {{genere.name}} {{i}}
+                {{genere.name}} 
               </div>
             
           </div>

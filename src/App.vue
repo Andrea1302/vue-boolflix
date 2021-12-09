@@ -57,8 +57,8 @@ export default {
     topRatedArray(array){
       this.topRateds = array
     },
-    activeSearch(){
-      this.RicercaCheck = true
+    activeSearch(valore){
+      this.RicercaCheck = valore
       
     },
     ActiveTopRated(valore){
